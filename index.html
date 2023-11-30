@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Greeting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="greeting">Hello!</h1>
+
+    <script>
+        // Function to get the value of the 'name' parameter from the URL
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Get the 'name' parameter from the URL
+        var nameParam = getParameterByName('name');
+
+        // Display personalized greeting
+        if (nameParam) {
+            document.getElementById('greeting').innerHTML = 'Hello, ' + nameParam + '!';
+        }
+    </script>
+
+</body>
+</html>
