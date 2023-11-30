@@ -16,9 +16,10 @@
 <body>
 
     <script>
-        // Function to get the value of the last part of the URL
+        // Function to get the value of the last part of the URL path
         function getNameFromURL() {
-            var parts = window.location.pathname.split('/');
+            var path = window.location.pathname;
+            var parts = path.split('/');
             return parts[parts.length - 1];
         }
 
@@ -27,7 +28,7 @@
 
         // Display personalized greeting
         if (nameParam) {
-            document.body.innerHTML = '<h1>Hello, ' + nameParam + '!</h1>';
+            document.body.innerHTML = '<h1>Hi ' + nameParam + '!</h1>';
         }
     </script>
 
